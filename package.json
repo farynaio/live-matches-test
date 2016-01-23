@@ -1,0 +1,15 @@
+{
+  "name": "live-matches-test",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "gulp serve"
+  },
+  "author": "Adam Faryna (https://github.com/adamfaryna)",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-autoprefixer": "^3.1.0",
+    "browser-sync": "^2.11.0"
+  }
+}
