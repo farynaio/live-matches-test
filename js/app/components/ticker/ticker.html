@@ -9,7 +9,7 @@
 		  <span class="match-score">{{play.score}}</span>
 	  	<span class="match-name"><img class="match-sport" src="{{play.sportIcon}}" alt="{{play.sportIconAlt}}"></img> {{play.name}}</span>
 		  <span class="match-time">{{play.startTime | timeFilter}}</span>
-		  <a class="place-bet" href="{{betLinkFormat}}/{{play.eventId}}">Place a bet</a>
+		  <a class="place-bet" href="{{betLinkFormat}}{{play.eventId}}">Place a bet</a>
 		</div>
 	</div>
 
