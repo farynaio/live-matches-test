@@ -53,7 +53,7 @@ app.directive('liveMatches', ['$interval', '$timeout', 'componentsPath', functio
 							score: elem.liveData.score ? elem.liveData.score.home + ' - ' + elem.liveData.score.away : '',
 							name: elem.event.name,
 							sport: elem.event.sport,
-							startTime: elem.event.start // check if data today - YYYY-MM-DD
+							startTime: elem.event.start
 						};
 
 						newPlays.push(play);

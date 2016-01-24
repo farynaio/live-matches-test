@@ -1,9 +1,15 @@
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync').create();
-var autoprefixer = require('gulp-autoprefixer');
+var $ = require('gulp-load-plugins')();
+
+gulp.task('lint', function() {
+  return gulp.src(['app/**/*.js', 'gulpfile.js'])
+    .pipe($.jshint('.jshintrc'))
+    .pipe($.jshint.reporter('jshint-stylish'));
+});
 
 // Static Server + watching files
-gulp.task('serve', function() {
+gulp.task('serve', ['lint'], function() {
   browserSync.init({
     browser: ['firefox'],
     server: '.',
