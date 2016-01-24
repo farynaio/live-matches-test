@@ -1,7 +1,7 @@
 {
   "name": "live-matches-test",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is simple application testing Ticker component for Unibet (http://unibet.com/) services.",
   "scripts": {
     "start": "gulp serve"
   },

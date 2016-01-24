@@ -1,13 +1,12 @@
 {
-  "name": "Live Matches Test",
+  "name": "live-matches-test",
   "authors": [
-    "Adam Faryna <adamfaryna@gmail.com>"
+    "Adam Faryna (https://github.com/adamfaryna)"
   ],
-  "description": "",
-  "main": "",
+  "description": "This is simple application testing Ticker component for Unibet (http://unibet.com/) services.",
   "moduleType": [],
   "license": "MIT",
-  "homepage": "",
+  "homepage": "https://github.com/adamfaryna",
   "ignore": [
     "**/.*",
     "node_modules",
