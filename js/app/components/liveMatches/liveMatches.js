@@ -15,9 +15,11 @@ app.directive('liveMatches', ['$interval', '$timeout', 'componentsPath', functio
         speed: attrs.transitionDuration || 500,
         slidesToShow: 1,
         slidesToScroll: 1,
-        dots: false
-        // prevArrow: '.btn-prev',
-        // nextArrow: '.btn-next'
+        dots: false,
+        infinite: true,
+        cssEase: 'linear',
+        prevArrow: '',
+        nextArrow: ''
         // ,
         // dataLoaded: false
       }
