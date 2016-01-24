@@ -8,11 +8,11 @@
 		<div class="match-item" ng-repeat="play in plays">
 		  <span class="match-score">{{play.score}}</span>
 		  <span class="match-name">{{play.name}}</span>
-		  <span class="match-time">{{play.startTime}}</span>
+		  <span class="match-time">{{play.startTime | timeFilter}}</span>
 		  <a class="place-bet" href="{{betLinkFormat}}/{{play.eventId}}">Place a bet</a>
 		</div>
 	</div>
-	
+
 	<aside>
 	  <h2>Live betting</h2>
 	  <p>Place your bets as the action unfolds. We offer a wide selection of live betting events and you can place both single and combination bets.</p>

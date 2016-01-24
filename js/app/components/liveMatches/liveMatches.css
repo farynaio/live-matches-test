@@ -34,7 +34,7 @@ live-matches .match-item {
   padding: 5px 0;
   margin: 0px 0 10px 0;
   float: left;
-  background-color: #000000;
+  background-color: #222222;
 }
 
 live-matches .match-score {
@@ -59,4 +59,14 @@ live-matches .place-bet {
   padding: 5px 20px;
   border-radius: 3px;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+live-matches content h1 {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+live-matches aside h2 {
+  font-size: 16px;
+  font-weight: bold;
 }

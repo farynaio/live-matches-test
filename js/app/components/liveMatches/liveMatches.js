@@ -10,7 +10,7 @@ app.directive('liveMatches', ['$interval', '$timeout', 'componentsPath', functio
       scope.betLinkFormat = 'https://www.unibet.com/betting#/event/live';
 
       var carouselOptions = {
-        autoplaySpeed: true,
+        autoplay: true,
         autoplaySpeed: attrs.slideInterval || 3000,
         speed: attrs.transitionDuration || 500,
         slidesToShow: 1,
@@ -20,8 +20,6 @@ app.directive('liveMatches', ['$interval', '$timeout', 'componentsPath', functio
         cssEase: 'linear',
         prevArrow: '',
         nextArrow: ''
-        // ,
-        // dataLoaded: false
       }
 
       $(function() {
