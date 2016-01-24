@@ -1,9 +1,9 @@
-app.directive('liveMatches', ['$interval', '$timeout', 'componentsPath', function($interval, $timeout, componentsPath) {
+app.directive('ticker', ['$interval', '$timeout', 'componentsPath', 'sportIconMap', function($interval, $timeout, componentsPath, sportIconMap) {
   'use strict';
 
   return {
     restrict: 'E',
-    templateUrl: componentsPath + '/liveMatches/liveMatches.html',
+    templateUrl: componentsPath + '/ticker/ticker.html',
     link: function(scope, elm, attrs) {
     	var url = 'http://api.unicdn.net/v1/feeds/sportsbook/event/live.jsonp?app_id=ca7871d7&app_key=5371c125b8d99c8f6b5ff9a12de8b85a';
       var fetchInterval = attrs.fetchInterval || 120000;
@@ -34,14 +34,26 @@ app.directive('liveMatches', ['$interval', '$timeout', 'componentsPath', functio
             success: function(response) {
               callback(response);
             },
-            beforeSend: function() {
-            	// later
+            error: function(data) {
+              console.log(data.error);
             }
           });
         }	
 
         function isSlickInited() {
         	return $('.match', elm).hasClass('slick-initialized');
+        }
+
+        function mapSportToIcon(sportString) {
+          var pom = sportString.toUpperCase();
+
+          for (var key in sportIconMap) {
+            if (~pom.indexOf(key)) {
+              return sportIconMap[key];
+            }
+          }
+
+          return sportIconMap.DEFAULT;
         }
 
         function callback(data) {
@@ -52,7 +64,8 @@ app.directive('liveMatches', ['$interval', '$timeout', 'componentsPath', functio
 							eventId: elem.liveData.eventId,
 							score: elem.liveData.score ? elem.liveData.score.home + ' - ' + elem.liveData.score.away : '',
 							name: elem.event.name,
-							sport: elem.event.sport,
+							sportIcon: mapSportToIcon(elem.event.sport),
+              sportIconAlt: 'Sport Icon',
 							startTime: elem.event.start
 						};
 
