@@ -1,13 +1,13 @@
-app.directive('ticker', ['$interval', '$timeout', 'componentsPath', 'sportIconMap', function($interval, $timeout, componentsPath, sportIconMap) {
-  'use strict';
+'use strict';
+
+app.directive('ticker', ['$interval', '$timeout', 'componentsPath', 'sportIconMap', 'options', '$http', function($interval, $timeout, componentsPath, sportIconMap, options, $http) {
 
   return {
     restrict: 'E',
     templateUrl: componentsPath + '/ticker/ticker.html',
     link: function(scope, elm, attrs) {
-    	var url = 'http://api.unicdn.net/v1/feeds/sportsbook/event/live.jsonp?app_id=ca7871d7&app_key=5371c125b8d99c8f6b5ff9a12de8b85a';
-      var fetchInterval = attrs.fetchInterval || 120000;
-      scope.betLinkFormat = 'https://www.unibet.com/betting#/event/live/';
+      var fetchInterval = attrs.fetchInterval || options.defaultServiceFetchInterval;
+      scope.betLinkFormat = options.betLinkFormat;
 
       var carouselOptions = {
         autoplay: true,
@@ -20,28 +20,24 @@ app.directive('ticker', ['$interval', '$timeout', 'componentsPath', 'sportIconMa
         cssEase: 'linear',
         prevArrow: '',
         nextArrow: ''
-      }
+      };
 
       $(function() {
       	fetchData();
         $interval(fetchData, fetchInterval);
 
         function fetchData() {
-        	$.ajax({
-            url: url,
-            jsonp: 'callback',
-            dataType: 'jsonp',
-            success: function(response) {
-              callback(response);
-            },
-            error: function(data) {
-              console.log(data.error);
-            }
+          $http.jsonp(options.serviceURL + '&callback=JSON_CALLBACK')
+            .then(function(response) {
+              callback(response.data);
+
+            }, function(response) {
+              console.log(JSON.stringify(response));
           });
-        }	
+        }
 
         function isSlickInited() {
-        	return $('.match', elm).hasClass('slick-initialized');
+          return elm.find('match').hasClass('slick-initialized');
         }
 
         function mapSportToIcon(sportString) {
@@ -78,7 +74,7 @@ app.directive('ticker', ['$interval', '$timeout', 'componentsPath', 'sportIconMa
         }
 
         function reinitSlick() {
-					var slickElem = $('.match', elm);
+					var slickElem = elm.find('match');
         	if (isSlickInited()) {
 						slickElem.slick('unslick');
 					}

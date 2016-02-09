@@ -16,13 +16,13 @@ ticker .content {
   border-color: #ffffff;
 }
 
-ticker .match span, ticker .match a {
+ticker match span, ticker match a {
   display: table;
   text-align: center;
   margin: 15px auto;
 }
 
-ticker .match {
+ticker match {
   display: inline-block;
   width: 69%;
 }
@@ -73,4 +73,8 @@ ticker content h1 {
 ticker aside h2 {
   font-size: 16px;
   font-weight: bold;
+}
+
+.slick-slider {
+  display: inline-block;
 }

@@ -1,17 +1,29 @@
+<!--
+
+<div class="cover">
+
+
+
+</div>
+-->
+
+
+
+
 <div class="content">
 	<h1>Live matches</h1>
 	<p class="preamble">
 	  Here is a list of matches that are live right now.
 	</p>
 
-	<div class="match">
+	<match class="">
 		<div class="match-item" ng-repeat="play in plays">
 		  <span class="match-score">{{play.score}}</span>
 	  	<span class="match-name"><img class="match-sport" src="{{play.sportIcon}}" alt="{{play.sportIconAlt}}"></img> {{play.name}}</span>
 		  <span class="match-time">{{play.startTime | timeFilter}}</span>
 		  <a class="place-bet" href="{{betLinkFormat}}{{play.eventId}}">Place a bet</a>
 		</div>
-	</div>
+	</match>
 
 	<aside>
 	  <h2>Live betting</h2>

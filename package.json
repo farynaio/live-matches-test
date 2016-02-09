@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "This is simple application testing Ticker component for Unibet (http://unibet.com/) services.",
   "scripts": {
-    "start": "gulp serve"
+    "start": "gulp serve",
+    "test": "karma start karma.conf.js"
   },
   "author": "Adam Faryna (https://github.com/adamfaryna)",
   "license": "MIT",
@@ -13,6 +14,8 @@
     "gulp-jshint": "^2.0.0",
     "gulp-load-plugins": "^1.2.0",
     "jshint": "^2.9.1",
-    "jshint-stylish": "^2.1.0"
+    "jshint-stylish": "^2.1.0",
+    "karma": "^0.13.19",
+    "karma-jasmine": "^0.3.7"
   }
 }
